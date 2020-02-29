@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-$DATABASE_URL = 'postgresql-crystaline-07381';
+$DATABASE_URL = parse_url('postgresql-crystaline-07381');
 return [
 
     /*
