@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Str;
-$DATABASE_URL = parse_url('postgresql-crystaline-07381');
+$DATABASE_URL = parse_url('postgres://fxkhbifcfsfkjs:fa6f27d5e3cb165e796b84affa61efcffef215d5b87244b97f2af04895233d01@ec2-54-247-125-38.eu-west-1.compute.amazonaws.com:5432/dajjkbr7g913se');
 return [
 
     /*
