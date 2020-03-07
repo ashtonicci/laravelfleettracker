@@ -26,18 +26,6 @@
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
     integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
     crossorigin=""></script>
-    <script>
-        $( document ).ready(function() {
-            var mymap = L.map('mapid').setView([53.557699, -2.869379], 16);
-            L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-                id: 'mapbox/streets-v11',
-                tileSize: 512,
-                zoomOffset: -1,
-                accessToken: 'pk.eyJ1IjoiYXNodG9uaWNjaSIsImEiOiJjazdkaWtiaG0wdmZlM21tc3Vub3JsODk4In0.7vwJBP25-7XM4ofA9ijhIQ'
-            }).addTo(mymap);
-        });
-    </script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -103,7 +91,7 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <map-component></map-component>
         </main>
     </div>
 </body>

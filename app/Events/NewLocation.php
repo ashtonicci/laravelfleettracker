@@ -9,19 +9,24 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
+use App\Location;
 
-class SendLocation
+class NewLocation implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+
+    public $location; 
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct()
+
+    public function __construct(Location $location)
     {
-        //
+        $this->location = $location;
     }
 
     /**
@@ -31,6 +36,11 @@ class SendLocation
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('channel-name');
+        return new Channel('location');
+    }
+  
+    public function broadcastAs()
+    {
+        return 'new-location';
     }
 }
