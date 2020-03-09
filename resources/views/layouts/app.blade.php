@@ -91,7 +91,7 @@
         </nav>
 
         <main class="py-4">
-            <map-component></map-component>
+            @yield('content')
         </main>
     </div>
 </body>

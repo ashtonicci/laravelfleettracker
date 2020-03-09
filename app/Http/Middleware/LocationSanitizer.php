@@ -16,6 +16,6 @@ class LocationSanitizer
      */
     public function handle($request, Closure $next)
     {
-        return [$request->form('lat') / 1000000];
+        return [$request->input('lat') / 1000000];
     }
 }

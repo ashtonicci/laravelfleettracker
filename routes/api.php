@@ -18,5 +18,5 @@ use Illuminate\Http\Request;
 // });
 
 Route::group(['prefix' => 'v0'], function(){    
-    Route::middleware('LocationSanitizer')->post('/location', 'API\v0\ApiController@post_location'); 
+    Route::post('/location', 'API\v0\ApiController@post_location'); 
 });
