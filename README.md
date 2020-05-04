@@ -15,6 +15,7 @@ __Screenshot of the location on the map__
 The project makes use of a Laravel MVC application with a Vue front end. Location is updated in real time using an event driven Pusher channel which receives the location object from the back end and sends it to the view via asynchronous listening function on the front end tied to the pusher channel. When new coordinates are received the map is updated.
 
 __Example Location Object__
+
 ![Location Object](https://i.imgur.com/LU8PtUb.png)
 
 As the location sent from the receiver uses high-precision coordinates, location is accurate to a matter of meters.
