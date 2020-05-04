@@ -2,7 +2,6 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <h3>Help Me</h3>
                 <div id="mapid"></div>
             </div>
         </div>
