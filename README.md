@@ -2,7 +2,7 @@
 This project is a fleet tracking system, it pairs an ESP2866 Micro-Controller with an UBlox NEO-6M GPS Module to form a GPS Receiver and posts its current position in latitude and longitude to a web application every 2 minutes, which then displays the position on a map in real time.
 
 __GPS Receiver__
-![GPS Receiver] https://i.imgur.com/jooK6Bx.jpg
+![GPS Receiver](https://i.imgur.com/jooK6Bx.jpg)
 
 The GPS Receiver uses NeoGPS to parse raw NMEA strings into a more "human format" 
 
