@@ -11,12 +11,11 @@ use App\Events\NewLocation;
 class ApiController extends Controller
 {
     function post_location(Request $request) {
-        Log::info($request);
-        // $location = new Location;
-        // $location->lat = (double) $request->input('lat');
-        // $location->long = (double) $request->input('long');
-        // $location->save();
-        // event(new NewLocation($location));
-        return response()->json(['status'=>200]);
+        $location = new Location;
+        $location->lat =  $request->input('lat') / 10000000;
+        $location->long = $request->input('long') / 10000000;
+        $location->save();
+        event(new NewLocation($location));
+                return response()->json(['status'=>200]);
     }
 }
