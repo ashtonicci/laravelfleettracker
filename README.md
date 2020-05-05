@@ -30,7 +30,7 @@ The map used is an open source Mapbox/Leaflet JS stack.
 
 ## Key Files
 
-__ApiController.php__
+__ApiController.php__ - App/Http/Controllers/Api/V0
 
 Parses in the request object from the GPS receiver, creates the location object and fires the ```NewLocation``` event before returning a 200 OK Response.
 
@@ -58,7 +58,7 @@ Parses in the request object from the GPS receiver, creates the location object 
 
 __MapComponent.vue - /resources/js/components/MapComponent.vue__
 
-Responsible for drawing the map and updating the location of the GPS receiver
+Responsible for drawing the map and updating the location of the GPS receiver, the listener function listens for 'new-location' messages on the 'location' channel 
 
                 var channel = Echo.channel('location');
                 $(document).ready(function () {
@@ -77,3 +77,6 @@ Responsible for drawing the map and updating the location of the GPS receiver
                     });
                 });
 
+__NewLocation.php - /App/Events/NewLocation.php __
+
+Responsible for sending the location object to pusher, wrapping the location object in a 'new-location' message and broadcasting it on the 'location' channel
