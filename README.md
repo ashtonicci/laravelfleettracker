@@ -30,7 +30,43 @@ The map used is an open source Mapbox/Leaflet JS stack.
 
 ## Key Files
 
-__ApiController.php__ - App/Http/Controllers/Api/V0
+__gps_receiver.ino - /sketch/gps_receiver__
+
+Parses in raw NMEA strings and sends them in a post request to the location endpoint
+
+                void loop() {
+                  while (gps.available( gpsPort ))
+                    doSomeWork( gps.read() );
+                }
+
+                static void doSomeWork( const gps_fix & fix )
+                {
+                  if (fix.valid.location) {
+                    postData = "lat=" + String(fix.latitudeL()) + "&long=" + String(fix.longitudeL());
+                    //IP Address of Web Server
+                    http.begin("http://192.168.0.10:8000/api/v0/location/");
+                    http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+                    int httpCode = http.POST(postData);   //Send the request
+                    String payload = http.getString();    //Get the response payload  
+                    DEBUG_PORT.println("code:");
+                    DEBUG_PORT.println(httpCode);   //Print HTTP return code
+                    DEBUG_PORT.println("data:");    //Print request response payload
+                    DEBUG_PORT.println(payload);    //Print request response payload
+                    http.end();  //Close connection
+                  }
+                  //Sleep for 60 seconds
+                  ESP.deepSleep(60e6);
+                }
+
+__api.php - /routes/api.php__
+
+Defines the route for the location API endpoint
+
+                Route::group(['prefix' => 'v0'], function(){    
+                    Route::post('/location', 'API\v0\ApiController@post_location'); 
+                });
+
+__ApiController.php - App/Http/Controllers/Api/V0 __
 
 Parses in the request object from the GPS receiver, creates the location object and fires the ```NewLocation``` event before returning a 200 OK Response.
 
