@@ -34,16 +34,6 @@ __ApiController.php__ - App/Http/Controllers/Api/V0
 
 Parses in the request object from the GPS receiver, creates the location object and fires the ```NewLocation``` event before returning a 200 OK Response.
 
-                <?php
-
-                namespace App\Http\Controllers\Api\v0;
-
-                use App\Http\Controllers\Controller;
-                use Illuminate\Http\Request;
-                use App\Location;
-                use Illuminate\Support\Facades\Log;
-                use App\Events\NewLocation;
-
                 class ApiController extends Controller
                 {
                     function post_location(Request $request) {
