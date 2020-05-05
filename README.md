@@ -66,7 +66,7 @@ Defines the route for the location API endpoint
                     Route::post('/location', 'API\v0\ApiController@post_location'); 
                 });
 
-__ApiController.php - App/Http/Controllers/Api/V0 __
+__ApiController.php - App/Http/Controllers/Api/V0__
 
 Parses in the request object from the GPS receiver, creates the location object and fires the ```NewLocation``` event before returning a 200 OK Response.
 
