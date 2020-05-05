@@ -56,6 +56,43 @@ Parses in the request object from the GPS receiver, creates the location object 
                     }
                 }
 
+__NewLocation.php - /App/Events/NewLocation.php__
+
+                class NewLocation implements ShouldBroadcast
+                {
+                    use Dispatchable, InteractsWithSockets, SerializesModels;
+
+                    public $location; 
+
+                    /**
+                     * Create a new event instance.
+                     *
+                     * @return void
+                     */
+
+                    public function __construct(Location $location)
+                    {
+                        $this->location = $location;
+                    }
+
+                    /**
+                     * Get the channels the event should broadcast on.
+                     *
+                     * @return \Illuminate\Broadcasting\Channel|array
+                     */
+                    public function broadcastOn()
+                    {
+                        return new Channel('location');
+                    }
+
+                    public function broadcastAs()
+                    {
+                        return 'new-location';
+                    }
+                }
+Responsible for sending the location object to pusher, wrapping the location object in a ```new-location``` message and broadcasting it on the ```location``` channel
+
+
 __MapComponent.vue - /resources/js/components/MapComponent.vue__
 
 Responsible for drawing the map and updating the location of the GPS receiver, the listener function listens for ```new-location``` messages on the ```location``` channel 
@@ -76,7 +113,3 @@ Responsible for drawing the map and updating the location of the GPS receiver, t
                         marker.setLatLng(latlng);
                     });
                 });
-
-__NewLocation.php - /App/Events/NewLocation.php __
-
-Responsible for sending the location object to pusher, wrapping the location object in a ```new-location``` message and broadcasting it on the ```location``` channel
