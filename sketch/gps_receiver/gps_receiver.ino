@@ -7,14 +7,14 @@ static NMEAGPS  gps; // This parses the GPS characters
 
 // Home Wifi definitions
 
-static const char* ssid = "WifiSam-2G";
-static const char* password = "Apollo1122";
+static const char* ssid = "Home Wifi SSID";
+static const char* password = "Home Wifi Password";
 
 //Campus Wifi definitions
 
 /*static const char* ssid = "EHU-Visitor";
 static const char* username = "23441445";
-static const char* password = "FuenteSecreto11"; */
+static const char* password = "Campus Wifi Password"; */
 
 static HTTPClient http;
 static String postData;
