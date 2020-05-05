@@ -31,6 +31,9 @@ The map used is an open source Mapbox/Leaflet JS stack.
 ## Key Files
 
 __ApiController.php__
+
+Parses in the request object from the GPS receiver, creates the location object and fires the ```NewLocation``` event before returning a 200 OK Response.
+
                 <?php
 
                 namespace App\Http\Controllers\Api\v0;
@@ -48,13 +51,14 @@ __ApiController.php__
                         $location->lat =  $request->input('lat') / 10000000;
                         $location->long = $request->input('long') / 10000000;
                         $location->save();
-                        Log::info($location);
                         event(new NewLocation($location));
                         return response()->json(['status'=>200]);
                     }
                 }
 
-__MapComponent.vue__
+__MapComponent.vue - /resources/js/components/MapComponent.vue__
+
+Responsible for drawing the map and updating the location of the GPS receiver
 
                 var channel = Echo.channel('location');
                 $(document).ready(function () {
