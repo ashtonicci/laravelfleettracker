@@ -68,7 +68,7 @@ Responsible for drawing the map and updating the location of the GPS receiver
                         id: 'mapbox/streets-v11',
                         tileSize: 512,
                         zoomOffset: -1,
-                        accessToken: 'pk.eyJ1IjoiYXNodG9uaWNjaSIsImEiOiJjazdkaWtiaG0wdmZlM21tc3Vub3JsODk4In0.7vwJBP25-7XM4ofA9ijhIQ'
+                        accessToken: '[REDACTED]'
                     }).addTo(mymap);
                     var marker = L.marker([51.508, -3.0]).addTo(mymap);
                     channel.listen('.new-location', function (data) {
