@@ -47,6 +47,7 @@ Parses in the request object from the GPS receiver, creates the location object 
                 }
 
 __NewLocation.php - /App/Events/NewLocation.php__
+Responsible for sending the location object to pusher, wrapping the location object in a ```new-location``` message and broadcasting it on the ```location``` channel
 
                 class NewLocation implements ShouldBroadcast
                 {
@@ -80,8 +81,6 @@ __NewLocation.php - /App/Events/NewLocation.php__
                         return 'new-location';
                     }
                 }
-Responsible for sending the location object to pusher, wrapping the location object in a ```new-location``` message and broadcasting it on the ```location``` channel
-
 
 __MapComponent.vue - /resources/js/components/MapComponent.vue__
 
