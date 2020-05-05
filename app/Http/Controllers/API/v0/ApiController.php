@@ -15,7 +15,8 @@ class ApiController extends Controller
         $location->lat =  $request->input('lat') / 10000000;
         $location->long = $request->input('long') / 10000000;
         $location->save();
+        Log::info($location);
         event(new NewLocation($location));
-                return response()->json(['status'=>200]);
+        return response()->json(['status'=>200]);
     }
 }
