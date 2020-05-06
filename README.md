@@ -8,6 +8,7 @@ As the location sent from the receiver uses high-precision coordinates, location
 __Basic overview of the process__
 ![Overall Process Diagram](https://i.imgur.com/ZR034Ds.png)
 
+
 ## Key Components
 
 __GPS Receiver__
@@ -196,7 +197,7 @@ The hardware set up is as follows:
 With an added wiring running on the NodeMCU from RST to D0 (this enables deep sleep functionality 
 
 1. Open the sketch in Arduino IDE
-2. Disconnect the cables from the D0 pin and the RX pin on the ESP8266 as these interfere with the uploading process
+2. Disconnect the cables from the D0 pin and the RX pin on the ESP2866 as these interfere with the uploading process
 3. Upload the sketch
 
 __Pusher__
