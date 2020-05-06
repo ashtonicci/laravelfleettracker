@@ -1,5 +1,5 @@
 # Laravel Fleet Tracker
-This project is a fleet tracking system, it pairs an ESP2866 Micro-Controller with an UBlox NEO-6M GPS Module to form a GPS Receiver and posts its current position in latitude and longitude to a web application every 2 minutes, which then displays the position on a map in real time.
+This project is a fleet tracking system, it pairs an ESP2866 Micro-Controller with an UBlox NEO-6M GPS Module to form a GPS Receiver and posts its current position in latitude and longitude to a web application every 80 seconds, which then displays the position on a map in real time.
 
 The project makes use of a Laravel MVC application with a Vue front end, the location is updated in real time every two minutes using an event driven Pusher channel. This receives the location object from the back end using an event. This location is then sent to the view via pusher channel which then sends the new coordinates to the map using an asynchronous listener function on the view.
 
@@ -212,4 +212,4 @@ __Pusher__
 
 6. Location objects should start to show in the debug console
 
-![Location Object Messages](https://i.imgur.com/z7nkcx4.png)
+![Location Object Messages](https://i.imgur.com/CFTQ1fP.png)
