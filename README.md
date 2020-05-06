@@ -139,10 +139,60 @@ Responsible for drawing the map and updating the location of the GPS receiver, t
                     });
                 });
                 
-__Build Instructions__
-1. Clone Repository
+## Build Instructions
+__Web Application__
+These are my build instructions for Linux
+1. Clone this Repository
 2. Install [VirtualBox 6.x](https://www.virtualbox.org/wiki/Downloads)
 3. Install [Vagrant](https://www.vagrantup.com/downloads.html)
 4. Install the Laravel Homestead Vagrant Box
 
                 vagrant box add laravel/homestead
+5. Clone Homestead Repository
+
+                git clone https://github.com/laravel/homestead.git ~/Homestead
+6. Run the ```bash init.sh``` commmand from the ```~/Homestead/``` directory
+7. Set your VM provider in ```Homestead.yaml``` file
+
+                provider: virtualbox
+8. Map the project directory in ```Homestead.yaml```
+
+                folders:
+                    - map: ~/code/laravelfleettracker
+                    to: /home/vagrant/code/laravelfleettracker
+9. Map the site to the directory
+
+                sites:
+                    - map: ~/code/laravelfleettracker
+                    to: /home/vagrant/code/laravelfleettracker/public 
+9. Add IP and hostname to the ```etc/hosts``` file
+
+                192.168.10.10  homestead.test
+10. run ```vagrant up``` in the ```Homestead``` directory
+
+11. run ```vagrant ssh``` in the ```Homestead``` directory to SSH to the vagrant box
+
+12. change directory on the box to the project folder
+
+                cd ~/code/laravelfleettracker
+
+14. run ```php artisan migrate``` to run the necessary migrations and build the database
+
+15. Navigate to ```http://homestead.test``` to see the running Web Application
+
+16. run ```php artisan queue:listen```, locations are sent to pusher using an event, events are queue based and ```queue:listen``` runs the job in the queue as they arrive
+
+__GPS Receiver__
+1. Open the sketch in Arduino IDE
+2. Disconnect the cables from the D0 pin and the RX pin on the ESP8266 as these interfere with the uploading process
+3. Upload the sketch
+
+__Pusher__
+1. Sign up to pusher.com
+2. In the setup screen, name the application and the select the EU cluster
+3. Select Vue.JS as the front-end tech and Laravel as the back-end tech
+![Pusher Demonstration](https://i.imgur.com/Xxa64W1.png)
+4. install pusher with composer (while ssh'd to the homestead box)
+                
+                composer require pusher/pusher-php-server
+1. add the ```app_id```, ```app_key``` and ```app_id``` for pusher in the .env file
