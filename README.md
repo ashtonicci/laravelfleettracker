@@ -183,6 +183,17 @@ These are my build instructions for Linux
 16. run ```php artisan queue:listen```, locations are sent to pusher using an event, events are queue based and ```queue:listen``` runs the job in the queue as they arrive
 
 __GPS Receiver__
+The hardware set up is as follows:
+
+| NEO-6M GPS Module | NodeMCU |
+| ------------- |:-------------:| 
+| TX            | RX            |
+| RX            | TX            |
+| VCC           | 3V3           |
+| GND           | GND           |
+
+With an added wiring running on the NodeMCU from RST to D0 (this enables deep sleep functionality 
+
 1. Open the sketch in Arduino IDE
 2. Disconnect the cables from the D0 pin and the RX pin on the ESP8266 as these interfere with the uploading process
 3. Upload the sketch
@@ -191,6 +202,7 @@ __Pusher__
 1. Sign up to pusher.com
 2. In the setup screen, name the application and the select the EU cluster
 3. Select Vue.JS as the front-end tech and Laravel as the back-end tech
+
 ![Pusher Demonstration](https://i.imgur.com/Xxa64W1.png)
 4. install pusher with composer (while ssh'd to the homestead box)
                 
