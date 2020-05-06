@@ -5,25 +5,25 @@ The project makes use of a [Laravel](https://laravel.com/) MVC application with 
 
 As the location sent from the receiver uses high-precision coordinates, location is accurate to a matter of meters and as the GPS Receiver needs to be powered via battery, it makes use of ESP Deep Sleep commands between post requests, this keeps power consumption at a minimum with an idle consumption of 50mA and an consumption during post requests of 140mA. Minimal power saving measures have been applied and these figures can be reduced further using a greater level of optimisation. 
 
-__Basic overview of the process__
+## Basic overview of the process 
 ![Overall Process Diagram](https://i.imgur.com/ZR034Ds.png)
 
 
 ## Key Components
 
-__GPS Receiver__
+### GPS Receiver
 
 ![GPS Receiver](https://i.imgur.com/jooK6Bx.jpg)
 
 The prototyped GPS Receiver
 
-__Example Location Object__
+### Example Location Object
 
 ![Location Object](https://i.imgur.com/LU8PtUb.png)
 
 A created location object containing the lat and long sent from the GPS receiver
 
-__Example location on the map__
+### Example location on the map
 
 ![Location on map](https://i.imgur.com/pxpyJBu.png)
 
@@ -31,7 +31,7 @@ The map used is an open source Mapbox/Leaflet JS stack.
 
 ## Key Files
 
-__gps_receiver.ino - /sketch/gps_receiver__
+### gps_receiver.ino - /sketch/gps_receiver 
 
 Parses in raw NMEA strings and sends them in a post request to the location endpoint
 
@@ -59,7 +59,7 @@ Parses in raw NMEA strings and sends them in a post request to the location endp
                   ESP.deepSleep(60e6);
                 }
 
-__api.php - /routes/api.php__
+### api.php - /routes/api.php 
 
 Defines the route for the location API endpoint
 
@@ -67,7 +67,7 @@ Defines the route for the location API endpoint
                     Route::post('/location', 'API\v0\ApiController@post_location'); 
                 });
 
-__ApiController.php - App/Http/Controllers/Api/V0__
+### ApiController.php - App/Http/Controllers/Api/V0 
 
 Parses in the request object from the GPS receiver, creates the location object and fires the ```NewLocation``` event before returning a 200 OK Response.
 
@@ -119,7 +119,7 @@ Responsible for sending the location object to pusher, wrapping the location obj
                     }
                 }
 
-__MapComponent.vue - /resources/js/components/MapComponent.vue__
+### MapComponent.vue - /resources/js/components/MapComponent.vue 
 
 Responsible for drawing the map and updating the location of the GPS receiver, the listener function listens for ```new-location``` messages on the ```location``` channel 
 
@@ -142,7 +142,7 @@ Responsible for drawing the map and updating the location of the GPS receiver, t
                 
 ## Build Instructions
 
-__Web Application__
+### Web Application 
 These are my build instructions for Linux
 1. Clone this Repository
 2. Install [VirtualBox 6.x](https://www.virtualbox.org/wiki/Downloads)
@@ -184,7 +184,7 @@ These are my build instructions for Linux
 
 16. run ```php artisan queue:listen```, locations are sent to pusher using an event, events are queue based and ```queue:listen``` runs the job in the queue as they arrive
 
-__GPS Receiver__
+### GPS Receiver
 
 The hardware set up is as follows:
 
@@ -201,7 +201,7 @@ With an added wiring running on the NodeMCU from RST to D0 (this enables deep sl
 2. Disconnect the cables from the D0 pin and the RX pin on the ESP2866 as these interfere with the uploading process
 3. Upload the sketch
 
-__Pusher__
+### Pusher
 1. Sign up to pusher.com
 2. In the setup screen, name the application and the select the EU cluster
 3. Select Vue.JS as the front-end tech and Laravel as the back-end tech
