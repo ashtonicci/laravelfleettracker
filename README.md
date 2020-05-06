@@ -205,6 +205,7 @@ __Pusher__
 3. Select Vue.JS as the front-end tech and Laravel as the back-end tech
 
 ![Pusher Demonstration](https://i.imgur.com/Xxa64W1.png)
+
 4. Install pusher with composer (while ssh'd to the homestead box)
                 
                 composer require pusher/pusher-php-server
