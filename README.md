@@ -205,7 +205,11 @@ __Pusher__
 3. Select Vue.JS as the front-end tech and Laravel as the back-end tech
 
 ![Pusher Demonstration](https://i.imgur.com/Xxa64W1.png)
-4. install pusher with composer (while ssh'd to the homestead box)
+4. Install pusher with composer (while ssh'd to the homestead box)
                 
                 composer require pusher/pusher-php-server
-1. add the ```app_id```, ```app_key``` and ```app_id``` for pusher in the .env file
+5. Add the ```app_id```, ```app_key``` and ```app_id``` for pusher in the .env file
+
+6. Location objects should start to show in the debug console
+
+![Location Object Messages](https://i.imgur.com/z7nkcx4.png)
