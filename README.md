@@ -186,7 +186,7 @@ These are my build instructions for Linux
 
 ### GPS Receiver
 
-The hardware set up is as follows:
+The hardware set up is as follows (With an added wiring running on the NodeMCU from RST to D0 to enable deep sleep functionality)
 
 | NEO-6M GPS Module | NodeMCU |
 | ------------- |:-------------:| 
@@ -194,8 +194,6 @@ The hardware set up is as follows:
 | RX            | TX            |
 | VCC           | 3V3           |
 | GND           | GND           |
-
-With an added wiring running on the NodeMCU from RST to D0 (this enables deep sleep functionality 
 
 1. Open the sketch in Arduino IDE
 2. Disconnect the cables from the D0 pin and the RX pin on the ESP2866 as these interfere with the uploading process
