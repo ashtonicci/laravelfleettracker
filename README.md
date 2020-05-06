@@ -183,6 +183,7 @@ These are my build instructions for Linux
 16. run ```php artisan queue:listen```, locations are sent to pusher using an event, events are queue based and ```queue:listen``` runs the job in the queue as they arrive
 
 __GPS Receiver__
+
 The hardware set up is as follows:
 
 | NEO-6M GPS Module | NodeMCU |
