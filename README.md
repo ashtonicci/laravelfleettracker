@@ -138,3 +138,10 @@ Responsible for drawing the map and updating the location of the GPS receiver, t
                         marker.setLatLng(latlng);
                     });
                 });
+                
+__Build Instructions__
+1. Clone Repository
+2. Install (VirtualBox 6.x)[https://www.virtualbox.org/wiki/Downloads]
+3. Install (Vagrant)[https://www.vagrantup.com/downloads.html]
+4. Install the Laravel Homestead Vagrant Box
+                vagrant box add laravel/homestead
