@@ -6,7 +6,7 @@ The project makes use of a Laravel MVC application with a Vue front end, the loc
 As the location sent from the receiver uses high-precision coordinates, location is accurate to a matter of meters and as the GPS Receiver needs to be powered via battery, it makes use of ESP Deep Sleep commands between post requests, this keeps power consumption at a minimum with an idle consumption of 50mA and an consumption during post requests of 140mA. Minimal power saving measures have been applied and these figures can be reduced further using a greater level of optimisation. 
 
 __Basic overview of the process__
-![Overall Process Diagram](https://i.imgur.com/jGDDhQt.png)
+![Overall Process Diagram](https://i.imgur.com/ZR034Ds.png)
 
 ## Key Components
 
