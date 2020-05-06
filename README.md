@@ -141,6 +141,7 @@ Responsible for drawing the map and updating the location of the GPS receiver, t
                 });
                 
 ## Build Instructions
+
 __Web Application__
 These are my build instructions for Linux
 1. Clone this Repository
